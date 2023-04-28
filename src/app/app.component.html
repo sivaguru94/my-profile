@@ -1,1 +1,23 @@
-<button class="btn btn-primary">Test Button</button>
+<app-side-nav>
+    <ng-container list class="d-flex align-items-end flex-column">
+        <div *ngFor="let filterForm of filterFormData" class="p-0 border">
+            <span class="dropdown-name">{{filterForm.name}}</span>
+            <select 
+                [(ngModel)]="filterForm.selected"
+                class="form-select form-select-sm mb-3 border-0 rounded-0 list-group-item" 
+                aria-label=".form-select-sm"
+            >   
+                <option *ngFor="let option of filterForm.data" [ngValue]="option">{{option}}</option>
+            </select>
+        </div>
+        <div class="p-4"></div>
+        <div class="p-4"></div>
+        <div class="p-4"></div>
+        <div class="p-3"></div>
+        <div class="d-flex flex-row justify-content-around m-2 p-2">
+            <button data-bs-target="#sidebar" data-bs-toggle="collapse" type="button" class="btn rounded-0 btn-outline-secondary px-4">Cancel</button>
+            <button (click)="onSubmit()"type="button" class="btn btn-success btn-l rounded-0 px-4">Submit</button>
+        </div>
+    </ng-container>
+    <app-dashboard dashboard style="background-color: #F8FCFA;"></app-dashboard>
+</app-side-nav>

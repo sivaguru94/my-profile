@@ -1,0 +1,30 @@
+<div class="d-flex flex-row justify-content-start h-auto wrapper">
+    <div class="d-flex flex-column border-end sidenav min-vh-100">
+        <img class="logo" src="assets/logo/logo.png"/>
+        <span class="d-flex flex-row justify-content-center py-2 px-4 sidenav-content" data-bs-target="#sidebar" data-bs-toggle="collapse">
+            <i class="bi bi-search px-2"></i> 
+            <span class="px-2">Search</span>
+        </span>
+        <span>
+            <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" 
+               class="border rounded-pill p-1 ml-1 text-decoration-none colapse-button shadow chevron"
+            >
+                <i class="bi bi-lg bi-chevron-left p-1"></i>
+            </a>
+        </span>
+    </div>
+    <div class="sidebar-wrapper">
+        <div class="row flex-nowrap">
+            <div class="col-auto">
+                <div id="sidebar" class="collapse collapse-horizontal show border-end">
+                    <div id="sidebar-nav" class="list-group border-0 rounded-0 text-sm-start">
+                        <ng-content select="[list]"></ng-content>
+                    </div>
+                </div>
+            </div>
+            <main class="main-content">
+                <ng-content select="[dashboard]"></ng-content>
+            </main>
+        </div>
+    </div>
+</div>

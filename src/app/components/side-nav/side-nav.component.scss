@@ -1,0 +1,41 @@
+.sidenav {
+    min-width: 200px;
+    width: 160px;
+    background-color: #FEFEFE;
+    overflow-x: hidden;
+
+    .logo {
+        padding: 2px;
+        max-width: 100%;
+        max-height: 100%;
+    }
+}
+
+.wrapper {
+    overflow-x: hidden;
+    .colapse-button {
+        position: fixed;
+        z-index: 99;
+        left: 11rem;
+        top: 24rem;
+    }
+    .sidenav-content {
+        color: #57AE85;
+        font-size: 20px;
+        cursor: pointer;
+    }
+    .chevron {
+        color: #989898;
+        background: white;
+    }
+}
+
+#sidebar-nav {
+    width: 260px;
+    padding-top: 80px;
+}
+
+.main-content {
+    max-width: calc(100% - 50px);
+    flex:   4 1 0;
+}
