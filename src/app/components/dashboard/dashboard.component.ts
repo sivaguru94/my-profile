@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { filter } from 'rxjs';
 import { Employee } from 'src/app/modals/employee';
 import { ApiService } from 'src/app/services/api.service';
@@ -8,15 +8,43 @@ import { ApiService } from 'src/app/services/api.service';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent {
 
-  employees: Employee[] = [];
+  _employees: Employee[] = [];
+  get employees(): Employee[] {
+    return this._employees;
+}
 
-  @Input() 
-  filterFormData: { value: string; name: String; data: string[]}[] = [];
+  @Input() set employees(value: Employee[]) {
+    this._employees = value;
+    this.init();
+  }
+
+  @Input() filterFormTeam!: { value: string; name: string; data: string[]; selected: string };
+
+  filteredEmployees: Employee[] = [];
+  max = 5;
+  isBanglaore = false;
+  @Output() filterBangaloreEvent: EventEmitter<boolean> = new EventEmitter();
+  @Output() teamFilterEvent: EventEmitter<string> = new EventEmitter();
 
   constructor() {}
 
-  ngOnInit(): void {}
+  init(): void {
+    this.filteredEmployees = this.employees;
+  }
+
+  ngAfterViewInit(): void {
+    console.log(this.employees);
+    this.employees = this.filteredEmployees;
+  }
+
+  filterBangalore(): void {
+    this.filterBangaloreEvent.emit(this.isBanglaore);
+  }
+
+  teamSelected():void {
+    this.teamFilterEvent.emit(this.filterFormTeam.selected);
+  }
 
 }

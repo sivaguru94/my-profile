@@ -12,14 +12,14 @@ export class AppComponent implements OnInit, OnDestroy {
 
   selectAll = "Select All";
   employees: Employee[] = [];
-  filteredEmployees: Employee[] = []; 
+  filteredEmployees: Employee[] = [];
 
   subscriptions: Subscription[] = [];
-  
+
   getInitialDataArray = () => [this.selectAll];
 
-  filterFormData: { value: string; name: String; data: string[]; selected: string }[] = [
-    { value: 'department', name: 'Department', data: this.getInitialDataArray(), selected: '' }, 
+  filterFormData: { value: string; name: string; data: string[]; selected: string }[] = [
+    { value: 'department', name: 'Department', data: this.getInitialDataArray(), selected: '' },
     { value: 'roleType', name: 'Role Type', data: this.getInitialDataArray(), selected: '' },
     { value: 'designation', name: 'Designation', data: this.getInitialDataArray(), selected: '' },
     { value: 'experience', name: 'Experience', data: this.getInitialDataArray(), selected: '' },
@@ -47,7 +47,7 @@ export class AppComponent implements OnInit, OnDestroy {
       this.filterFormData[5].data.push(employee.location);
       this.filterFormData[6].data.push(employee.team);
     });
-    this.filterFormData.forEach(formData => { 
+    this.filterFormData.forEach(formData => {
       formData.data = [...new Set(formData.data)];
       formData.selected = formData.data[0];
     });
@@ -68,6 +68,22 @@ export class AppComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.subscriptions.forEach(subscription => subscription.unsubscribe());
+  }
+
+  cancel(): void {
+    this.filterFormData.forEach(formData => {
+      formData.selected = formData.data[0];
+    });
+  }
+
+  filterBangalore(isBangalore: boolean) {
+    this.filterFormData[5].selected = isBangalore ? 'Bangalore' : this.filterFormData[5].data[0];
+    this.filterEmployees();
+  }
+
+  filterTeam(team: string): void {
+    this.filterFormData[6].selected = team;
+    this.filterEmployees();
   }
 
 }

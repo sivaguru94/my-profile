@@ -1,8 +1,10 @@
+@import "../../../sass/mixins";
+
 .sidenav {
     min-width: 200px;
     width: 160px;
-    background-color: #FEFEFE;
-    overflow-x: hidden;
+    background-color: var(--background-white);
+    overflow: hidden;
 
     .logo {
         padding: 2px;
@@ -12,30 +14,30 @@
 }
 
 .wrapper {
-    overflow-x: hidden;
+    overflow: hidden;
     .colapse-button {
         position: fixed;
         z-index: 99;
-        left: 11rem;
+        left: 11.5rem;
         top: 24rem;
     }
     .sidenav-content {
-        color: #57AE85;
+        color: var(--app-green);
         font-size: 20px;
         cursor: pointer;
+        @include bg-hover;
     }
     .chevron {
-        color: #989898;
-        background: white;
+        color: var(--app-gray);
+        background: var(--background-white);
     }
 }
 
 #sidebar-nav {
     width: 260px;
-    padding-top: 80px;
 }
 
 .main-content {
-    max-width: calc(100% - 50px);
-    flex:   4 1 0;
+    max-width: calc(100%);
+    flex-grow: 1;
 }

@@ -1,0 +1,10 @@
+@mixin bg-hover {
+  &:hover {
+      background: #EAF4F0;
+  }
+}
+
+@mixin seperator {
+  padding: 0.1px;
+  background: gray;
+}

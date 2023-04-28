@@ -1,0 +1,43 @@
+<div class="card rounded-0">
+  <div class="card-body px-0 py-1">
+    <div class="d-flex  flex-column">
+      <div class="d-flex flex-row align-items-center justify-content-around pt-2 px-3">
+        <span class="border rounded-pill py-2 px-3 m-1 me-2 text-decoration-none image"><i class="bi bi-person image-icon"></i></span>
+        <div class="d-flex flex-column align-self-center justify-content-center" style="width: 9rem">
+          <p class="card-title"><b>{{employee.name}}</b></p>
+          <p class="card-subtitle text-nowrap text-truncate text-muted me-3">{{employee.designation}}</p>
+        </div>
+        <span class="border shadow rounded-pill text-decoration-none round-btn"><i class="bi bi-send-fill icon"></i></span>
+      </div>
+      <div class="d-flex flex-row gap-2 align-items-center justify-content-start ms-3 p-2">
+        <small class="ms-1 text-muted"><label>{{employee.rating}}</label> Rateing</small>
+        <div class="p-2"></div>
+        <rating [(ngModel)]="employee.rating" [max]="max" [readonly]="true" class="rateing"></rating>
+      </div>
+      <div class="seperator"></div>
+      <div class="justify-content-arround row-element">
+        <small class="ms-2 text-muted">Experience: <label class="label-value">{{employee.experience}}</label></small>
+        <small class="ms-2 text-muted">Date of Joining: <label class="label-value">{{employee.yearOfJoinning}}</label></small>
+      </div>
+      <div class="seperator"></div>
+      <div class="justify-content-start row-element">
+        <small class="ms-2 text-muted">Currnent Team: <label class="label-value">{{employee.team}}</label></small>
+      </div>
+      <div class="seperator"></div>
+      <div class="row-element">
+        <small class="ms-2 text-muted">Reporting Manager: <label class="label-value">{{employee.manager}}</label></small>
+      </div>
+      <div class="seperator"></div>
+      <div class="justify-content-center row-element gap-1 px-1" data-toggle="tooltip" [title]="employee.phoneNumber" data-placement="bottom">
+        <div class="d-flex flex-row align-items-center gap-1">
+          <div class="border shadow-sm rounded-pill text-decoration-none round-btn"><i class="bi bi-telephone-fill icon"></i></div>
+          <small class="label-value phone-email">{{employee.phoneNumber}}</small>
+        </div>
+        <div class="d-flex flex-row align-items-center gap-2" data-toggle="tooltip" [title]="employee.email" data-placement="bottom">
+          <div class="border shadow-sm rounded-pill text-decoration-none round-btn"><i class="bi bi-envelope icon"></i></div>
+          <small class="label-value phone-email">{{employee.email}}</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

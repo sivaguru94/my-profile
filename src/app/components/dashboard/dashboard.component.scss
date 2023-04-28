@@ -1,3 +1,15 @@
 .dashboard-wrapper {
-    background-color: #F8FCFA;
+    background-color: var(--background-main);
+
+
+}
+
+.main-content {
+  overflow: auto !important;
+  height: 800px !important;
+  flex-grow: 1;
+}
+
+#select {
+  width: 10rem;
 }

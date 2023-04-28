@@ -1,8 +1,5 @@
-.dropdown-name {
-    color: #5F6368;
+.dropdown-title {
+    color: var(--app-gray);
     margin-left: 15px;
-}
-
-.list {
-    flex: 0 1 auto;
+    font-size: 15px;
 }
