@@ -8,7 +8,9 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "json-server": "json-server --watch db.json",
-    "dev": "yarn run start & yarn run json-server"
+    "dev": "yarn run start & yarn run json-server",
+    "build:prod": "ng build --configuration production --base-href https://sivaguru94.github.io/my-profile/",
+    "deploy:gh": "ngh --dir=dist/my-profile"
   },
   "private": true,
   "dependencies": {
