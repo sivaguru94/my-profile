@@ -10,13 +10,12 @@
               <option *ngFor="let option of filterForm.data" [ngValue]="option">{{option}}</option>
             </select>
         </div>
-        <div class="p-4"></div>
-        <div class="p-4"></div>
-        <div class="p-4"></div>
-        <div class="p-3"></div>
-        <div class="d-flex flex-row justify-content-around m-2 p-2">
-            <button (click)="cancel()" type="button" class="btn rounded-0 btn-outline-secondary px-4">Cancel</button>
-            <button (click)="onSubmit()"type="button" class="btn btn-success btn-l rounded-0 px-4">Submit</button>
+        <div class="d-flex align-items-end flex-column">
+          <!-- <div class="flex-grow"></div> -->
+          <div class="d-flex flex-row justify-content-around mt-auto p-2">
+              <button (click)="cancel()" type="button" class="btn rounded-0 btn-outline-secondary px-4">Cancel</button>
+              <button (click)="onSubmit()"type="button" class="btn btn-success btn-l rounded-0 px-4">Submit</button>
+          </div>
         </div>
     </ng-container>
 </app-side-nav>
